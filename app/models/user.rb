@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   ## TODO 実装
-  ## begin 確認してほしいコード１
+  ## begin 確認してほしいコード
   def have(item)
     haves.create(user_id: item.id)
   end
@@ -59,5 +59,5 @@ class User < ActiveRecord::Base
   def want?(item)
     want_items.include?(item)
   end
-  ## end 確認してほしいコード１
+  ## end 確認してほしいコード
 end

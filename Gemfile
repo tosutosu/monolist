@@ -55,6 +55,7 @@ group :development, :test do
 
   gem 'pry-rails'
   
+  gem 'pry-byebug', group: :development
   group :development, :test do
     # PryでのSQLの結果を綺麗に表示
     # See ~/.pryrc

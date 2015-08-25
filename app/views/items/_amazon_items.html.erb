@@ -1,15 +1,12 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
     <% amazon_items.each do |item| %>
-    <% #binding.pry %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
             <% #TODO 商品画像 %>
             <% if item.get("LargeImage/URL").present? %>
               <%= image_tag(item.get("LargeImage/URL"), alt: item.get('ItemAttributes/Title')) %>
-              <% #binding.pry %>
-              <% #image_tag(item.get("LargeImage/URL")) %>
             <% else %>
               <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
             <% end %>

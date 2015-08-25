@@ -52,7 +52,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
+  
+  ### Add Gems ###
   gem 'pry-rails'
   
   gem 'pry-byebug', group: :development
@@ -61,6 +62,10 @@ group :development, :test do
     # See ~/.pryrc
     gem 'hirb'
     gem 'hirb-unicode'
+  end
+  
+  group :development, :test do
+    gem 'rails-erd'
   end
 end
 

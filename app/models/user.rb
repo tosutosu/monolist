@@ -15,13 +15,11 @@ class User < ActiveRecord::Base
   has_many :ownerships , foreign_key: "user_id", dependent: :destroy
   has_many :items ,through: :ownerships
   
-  ## begin 確認してほしいコード１
   has_many :wants, class_name: "Want", foreign_key: "user_id", dependent: :destroy
   has_many :want_items, through: :wants, source: :item
   
   has_many :haves, class_name: "Have", foreign_key: "user_id", dependent: :destroy
   has_many :have_items, through: :haves, source: :item
-  ## end 確認してほしいコード１
 
   # 他のユーザーをフォローする
   def follow(other_user)
@@ -37,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   ## TODO 実装
-  ## begin 確認してほしいコード２
+  ## begin 確認してほしいコード１
   def have(item)
     haves.create(user_id: item.id)
   end
@@ -61,5 +59,5 @@ class User < ActiveRecord::Base
   def want?(item)
     want_items.include?(item)
   end
-  ## end 確認してほしいコード２
+  ## end 確認してほしいコード１
 end

@@ -54,5 +54,12 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
+  
+  group :development, :test do
+    # PryでのSQLの結果を綺麗に表示
+    # See ~/.pryrc
+    gem 'hirb'
+    gem 'hirb-unicode'
+  end
 end
 

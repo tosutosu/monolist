@@ -25,3 +25,6 @@ if defined? Hirb
   #Hirb.enable
   Hirb.disable
 end
+
+# pagerの原因で動作しない場合はとりあえず"false"にする
+Pry.config.pager = false

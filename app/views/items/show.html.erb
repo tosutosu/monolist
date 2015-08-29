@@ -1,20 +1,24 @@
+<% content_for :head do %>
+  <title><%= @item.title %> - monolist</title>
+  <meta name="description" content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。">
+<% end %>
 <div class="container">
   <div class="container-inner inner-sm clearfix">
     <div class="item-single-main">
       <div class="image">
         <div class="img-wrap">
           <% #TODO 商品イメージ %>
-          <% if item.get("LargeImage/URL").present? %>
-            <%= image_tag(item.get("LargeImage/URL"), alt: item.get('ItemAttributes/Title')) %>
+          <% if @item.large_image.present? %>
+            <%= image_tag(@item.large_image, alt: @item.title) %>
           <% else %>
-            <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <%= image_tag("no-image.png" , alt: 'no-image') %>
           <% end %>
         </div>
       </div>
       <div class="title">
         <% #TODO 商品タイトル %>
-        <% if item.get('ItemAttributes/Title').present? %>
-          <%= item.get('ItemAttributes/Title') %>
+        <% if @item.title.present? %>
+          <%= @item.title %>
         <% else %>
           仮タイトル
         <% end %>
@@ -26,13 +30,25 @@
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
           <% # TODO Haveしたユーザー一覧 %>
-
+          <% #binding.pry %>
+          <% @item.have_users.each do |user| %>
+            <%= link_to user do %>
+              <span class="gravatar"><%= gravatar_for user, size: 20 %></span>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
           <% # TODO Wantしたユーザー一覧 %>
+          <% @item.want_users.each do |user| %>
+            <%= link_to user do %>
+              <span class="gravatar">
+                <%= gravatar_for user, size: 20 %>
+              </span>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="text-center">

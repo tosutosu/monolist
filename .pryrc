@@ -23,8 +23,8 @@ if defined? Hirb
   end
 
   # Hirb(ON/OFF)
-  Hirb.enable
-  #Hirb.disable
+  #Hirb.enable
+  Hirb.disable
 end
 
 # pagerの原因で動作しない場合はとりあえず"false"にする

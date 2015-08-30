@@ -1,14 +1,20 @@
 class RankingController < ApplicationController
     def have
-        binding.pry
-        @desc_have_items
-        have_item_ids = Have.group(:item_id).order('count_item_id desc').limit(10).count(:item_id).keys
-        have_item_ids.each do |id|
-            @desc_have_items = @desc_have_items + Item.find_by_id(id)
-        end
+        @haved_ranking_items = haved_ranking()
     end
     
     def want
-        
+        @wanted_ranking_items = wanted_ranking()
+    end
+    
+private
+    def haved_ranking (size = 10)
+        haved_ids = Have.group(:item_id).order('count_item_id desc').limit(size).count(:item_id).keys
+        Item.find(haved_ids).sort_by{|i| haved_ids.index(i.id)}
+    end
+    
+    def wanted_ranking (size = 10)
+        wanted_ids = Have.group(:item_id).order('count_item_id desc').limit(size).count(:item_id).keys
+        Item.find(wanted_ids).sort_by{|i| wanted_ids.index(i.id)}
     end
 end

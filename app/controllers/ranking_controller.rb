@@ -14,7 +14,7 @@ private
     end
     
     def wanted_ranking (size = 10)
-        wanted_ids = Have.group(:item_id).order('count_item_id desc').limit(size).count(:item_id).keys
+        wanted_ids = Want.group(:item_id).order('count_item_id desc').limit(size).count(:item_id).keys
         Item.find(wanted_ids).sort_by{|i| wanted_ids.index(i.id)}
     end
 end

@@ -1,5 +1,1 @@
-ほげほげ２
-ほげほげ１
-<% @wanted_ranking_items.each do |item| %>
-    <%= item.title %>
-<% end %>
+<%= render 'items/ranking_list' , items: @wanted_ranking_items %>

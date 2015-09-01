@@ -1,4 +1,1 @@
-ほげほげ１
-<% @haved_ranking_items.each do |item| %>
-    <%= item.title %>
-<% end %>
+<%= render 'items/ranking_list' , items: @haved_ranking_items %>

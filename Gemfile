@@ -54,5 +54,10 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry-rails'
+  
+  gem 'rails_admin'
+  
+  ### Add Gems ###
+  gem 'pry-rails'
 end
 
